@@ -1,0 +1,29 @@
+database:
+  postgresql:
+    host: localhost
+    port: 5432
+    user: your_pg_user
+    password: your_pg_password
+    database: your_pg_db
+  snowflake:
+    account: your_snowflake_account
+    user: your_sf_user
+    password: your_sf_password
+    warehouse: your_warehouse
+    database: your_sf_db
+    schema: your_sf_schema
+
+tables:
+  - name: customer
+    load_type: full-load
+    natural_keys: [first_name, last_name, dob]
+    uuid_column: customer_id
+    compare_columns: [email, phone]
+    accuracy_check:
+      enabled: true
+      columns: [revenue]
+      condition: "status = 'active'"
+
+settings:
+  export_results: true
+  export_path: results/

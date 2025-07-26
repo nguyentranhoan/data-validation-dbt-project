@@ -1,0 +1,21 @@
+database:
+  your_project_name:
+    target: dev
+    outputs:
+      dev:
+        type: postgres
+        threads: 1
+        host: localhost
+        port: 5432
+        user: your_pg_user
+        password: your_pg_password
+        dbname: your_pg_db
+      prod:
+        type: snowflake
+        threads: 1
+        account: your_snowflake_account
+        user: your_sf_user
+        password: your_sf_password
+        warehouse: your_warehouse
+        database: your_sf_db
+        schema: your_sf_schema

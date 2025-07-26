@@ -1,0 +1,20 @@
+name: data-validation-dbt-project
+version: 1.0.0
+
+profile: my_profile
+
+source-paths: ["models", "seeds", "snapshots"]
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+models:
+  +materialized: view
+  +enabled: true
+
+seeds:
+  +enabled: true
+
+snapshots:
+  +enabled: true
